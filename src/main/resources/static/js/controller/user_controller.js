@@ -5,7 +5,7 @@
         $scope.data = [];
 
         $scope.loadData = function() {
-            $http.get('http://localhost:8088/Users').success(function (data) {
+            $http.get('http://mole:8088/Users').success(function (data) {
                 $scope.data = data;
             });
         };
@@ -21,7 +21,7 @@
             $scope.newUser.modifiedBy = 1;
             console.log($scope.newUser);
 
-            var res = $http.post('http://localhost:8088/Users/Add', $scope.newUser);
+            var res = $http.post('http://mole:8088/Users/Add', $scope.newUser);
             res.success(function(data, status, headers, config) {
                 console.log('success');
                 $scope.loadData();
