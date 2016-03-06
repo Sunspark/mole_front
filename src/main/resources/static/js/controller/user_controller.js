@@ -1,28 +1,40 @@
 (function(){
     var usersCtrl = angular.module('usersCtrl', []);
 
-    usersCtrl.controller("users", function($scope) {
-        $scope.user_id = 2;
-        $scope.getNewUserId = function(){
-            this.user_id = this.user_id + 1;
-            return this.user_id;
+    usersCtrl.controller("users",[ '$scope', '$http', function($scope, $http) {
+        $scope.data = [];
+
+        $scope.loadData = function() {
+            $http.get('http://localhost:8088/Users').success(function (data) {
+                $scope.data = data;
+            });
         };
+        $scope.loadData();
 
-        $scope.data = [
-            {user_id:1, first_name:"fred", last_name:"flintstone"},
-            {user_id:2, first_name:"barney", last_name:"rubble"}
 
-        ];
         $scope.newUser = {};
         $scope.addUser = function(){
             alert('add User');
-            $scope.newUser.user_id = $scope.getNewUserId();
+            console.log($scope.data);
+
+            $scope.newUser.createdBy = 1;
+            $scope.newUser.modifiedBy = 1;
             console.log($scope.newUser);
-            $scope.data.push($scope.newUser);
+
+            var res = $http.post('http://localhost:8088/Users/Add', $scope.newUser);
+            res.success(function(data, status, headers, config) {
+                console.log('success');
+                $scope.loadData();
+            });
+            res.error(function(data, status, headers, config) {
+                alert( "failure message: " + JSON.stringify({data: data}));
+            });
+
+
             $scope.reset();
         };
         $scope.reset = function(){
             $scope.newUser = {};
         };
-    });
+    }]);
 })();
