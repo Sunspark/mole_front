@@ -1,0 +1,14 @@
+<div>
+    <form novalidate="true"  ng-submit="addUser()">
+        First name: <input type="text" ng-model="newUser.first_name" /><br />
+        Last name: <input type="text" ng-model="newUser.last_name" /><br />
+        <button type="submit">submit</button><br />
+        <button type="button" ng-click="reset()">RESET</button>
+    </form>
+    <p>{{newUser.first_name + " " + newUser.last_name}}</p>
+    <div ng-repeat="user in data">
+        {{user.user_id}}
+        {{user.first_name}}
+        {{user.last_name}}
+    </div>
+</div>

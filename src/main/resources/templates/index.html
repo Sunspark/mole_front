@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="moleApp">
+<head>
+    <meta charset="UTF-8" />
+    <title>M.O.L.E</title>
+    <link href="/bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="/bootstrap-3.3.6-dist/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="/angular-1.5.0/angular.min.js" type="text/javascript"></script>
+    <script src="/angular-1.5.0/angular-route.min.js" type="text/javascript"></script>
+    <script src="/js/app.js" type="text/javascript"></script>
+    <script src="/js/controller/user_controller.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <div id="home_image"><img src="/images/mole_transparent_small.png" /></div>
+    <div id="navigation">
+        <div id="user">
+            <ul>
+                <li>log in</li>
+                <li>edit user</li>
+                <li>create user</li>
+            </ul>
+        </div>
+        <div id="case">
+            <ul>
+                <li>cases</li>
+                <li>create case</li>
+            </ul>
+        </div>
+        <div id="clinic">
+            <ul>
+                <li>clinics</li>
+                <li>create clinic</li>
+            </ul>
+        </div>
+        <div id="reports">
+            <ul>
+                <li>due soon</li>
+                <li>pending files</li>
+                <li>overdue by offender</li>
+            </ul>
+        </div>
+    </div>
+    <div ng-view="true"></div>
+    <p>{{"testing"}}</p>
+    <div ng-controller="fishCtrl">{{sauce}}</div>
+</div>
+</body>
+</html>
