@@ -8,46 +8,34 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="/bootstrap-3.3.6-dist/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="/angular-1.5.0/angular.min.js" type="text/javascript"></script>
-    <script src="/angular-1.5.0/angular-route.min.js" type="text/javascript"></script>
     <script src="/js/app.js" type="text/javascript"></script>
     <script src="/js/controller/user_controller.js" type="text/javascript"></script>
+    <script src="/js/controller/nav_controller.js" type="text/javascript"></script>
 </head>
-<body>
-<div class="container-fluid">
-    <div class="row">
-        <div id="navigation" class="col-md-3">
-            <div id="home_image"><img src="/images/mole_transparent_small.png" /></div>
-            <div id="user">
-                <ul>
-                    <li>log in</li>
-                    <li>edit user</li>
-                    <li><a href="#/Users/Edit">create user</a></li>
-                </ul>
+<body ng-controller="navCtrl">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand"><!--<img src="/images/mole_transparent_small.png" />-->M.O.L.E</a>
             </div>
-            <div id="case">
-                <ul>
-                    <li>cases</li>
-                    <li>create case</li>
-                </ul>
-            </div>
-            <div id="clinic">
-                <ul>
-                    <li>clinics</li>
-                    <li>create clinic</li>
-                </ul>
-            </div>
-            <div id="reports">
-                <ul>
-                    <li>due soon</li>
-                    <li>pending files</li>
-                    <li>overdue by offender</li>
-                </ul>
-            </div>
+            <ul class="nav navbar-nav">
+                <li class="dropdown" ng-repeat="tab in tabs">
+                    <a class="dropdown-toggle" data-toggle="dropdown">{{tab.title}}<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li ng-repeat="link in tab.links"><a ng-click="changeTab(link)">{{link.title}}</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
         </div>
-        <div class="col-md-9" ng-view="true"></div>
+    </nav>
+
+    <div id="app" class="container-fluid">
+        <p>{{"testing"}}<br />otheuh<br />tahouethu<br />tehuoth<br />etohauh<br />touhsnau</p>
+        <div ng-include="getIncludeUrl()"></div>
     </div>
-    <p>{{"testing"}}</p>
-    <div ng-controller="fishCtrl">{{sauce}}</div>
-</div>
+
 </body>
 </html>

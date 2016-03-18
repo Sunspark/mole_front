@@ -1,14 +1,20 @@
 (function(){
     var usersCtrl = angular.module('usersCtrl', []);
 
-    usersCtrl.controller("users",[ '$scope', '$http', function($scope, $http) {
+    usersCtrl.controller("usersCtrl",[ '$scope', '$http', function($scope, $http) {
         $scope.data = [];
 
         $scope.loadData = function() {
+        /*
             $http.get('http://mole:8088/Users').success(function (data) {
                 console.log(data);
                 $scope.data = data;
             });
+            */
+            $scope.data = [
+                {firstName:'jack',lastName:'bauer',createdBy:101,modifiedBy:101},
+                {firstName:'jill',lastName:'bauer',createdBy:101,modifiedBy:101},
+            ];
         };
         $scope.loadData();
 
