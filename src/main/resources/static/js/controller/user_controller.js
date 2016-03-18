@@ -6,6 +6,7 @@
 
         $scope.loadData = function() {
             $http.get('http://mole:8088/Users').success(function (data) {
+                console.log(data);
                 $scope.data = data;
             });
         };
@@ -36,5 +37,11 @@
         $scope.reset = function(){
             $scope.newUser = {};
         };
+        $scope.hasPower = function(user){
+            if(user.power > 8){ // TODO this should be 'if current user has less or equal power to passed user'
+                return true;
+            }
+            return false;
+        }
     }]);
 })();

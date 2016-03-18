@@ -7,12 +7,16 @@
     app.config(['$routeProvider',
         function($routeProvider) {
             $routeProvider
-                .when('/', {
-                    templateUrl: '/views/users.html',
+                .when('/Users/Edit', {
+                    templateUrl: '/views/users/users.html',
+                    controller: 'users'
+                })
+                .when('/Users/Login', {
+                    templateUrl: '/views/users/login.html',
                     controller: 'users'
                 })
                 .otherwise({
-                    redirectTo: '/'
+                    redirectTo: '/Users/Login'
                 });
         }]);
 
@@ -21,22 +25,4 @@
         $scope.sauce ="gravy";
     });
 
-/*
-var app = angular.module('moleApp', [
-    'ngRoute',
-    'moleControllers'
-]);
-
-moleApp.config(['$routeProvider',
-    function($routeProvider) {
-        $routeProvider
-        .when('/', {
-            templateUrl: 'users.html',
-            controller: 'usersCtrl'
-        })
-        .otherwise({
-            redirectTo: '/'
-        });
-    }]);
-*/
 })();
