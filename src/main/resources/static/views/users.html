@@ -20,7 +20,7 @@
             <td>{{user.firstName}}</td>
             <td>{{user.lastName}}</td>
             <td>{{user.power}}</td>
-            <td><span ng-show="hasPower(user)">Edit</span></td>
+            <td><span ng-show="hasPower(user)"><a ng-click="editUser(user)" title="Edit user"><span class="glyphicon glyphicon-wrench"></span></a></span></td>
         </tr>
     </table>
 </div>
