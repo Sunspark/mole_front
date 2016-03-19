@@ -1,0 +1,19 @@
+<div ng-controller="casesCtrl">
+    <h2>Cases</h2>
+    <table class="table table-hover table-condensed table-striped">
+        <tr>
+            <th>id</th>
+            <th>Agency Ref #</th>
+            <th>Agency</th>
+            <th>Claimant</th>
+            <th>Action</th>
+        </tr>
+        <tr ng-repeat="case in data">
+            <td>{{case.caseId}}</td>
+            <td>{{case.agencyRefCode}}</td>
+            <td>{{case.agencyId}}</td>
+            <td>{{case.claimantId}}</td>
+            <td><span ng-show="hasPower(case)"><a ng-click="editCase(case)" title="Edit case"><span class="glyphicon glyphicon-wrench"></span></a></span></td>
+        </tr>
+    </table>
+</div>

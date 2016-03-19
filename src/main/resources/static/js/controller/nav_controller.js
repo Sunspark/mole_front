@@ -24,7 +24,8 @@
                 title: 'Cases',
                 links: [
                     {
-                        title: 'View Cases'
+                        title: 'View Cases',
+                        url:'/views/cases.html'
                     },
                     {
                         title: 'Create Case'
