@@ -1,5 +1,13 @@
 <div ng-controller="casesCtrl">
     <h2>Cases</h2>
+    <p>
+        <a ng-click="addCasePopup()">Create</a>
+        <select>
+            <option value="agencyRefCode">Agency code</option>
+            <option value="claimantLastName">Claimant Last name</option>
+        </select>
+        <input type="text" />
+    </p>
     <table class="table table-hover table-condensed table-striped">
         <tr>
             <th>id</th>
@@ -13,7 +21,22 @@
             <td>{{case.agencyRefCode}}</td>
             <td>{{case.agencyId}}</td>
             <td>{{case.claimantId}}</td>
-            <td><span ng-show="hasPower(case)"><a ng-click="editCase(case)" title="Edit case"><span class="glyphicon glyphicon-wrench"></span></a></span></td>
+            <td><span ng-show="hasPower(case)"><a ng-click="editCasePopup(case)" title="Edit case"><span class="glyphicon glyphicon-wrench"></span></a></span></td>
         </tr>
     </table>
+
+    <modal title="Add Case" visible="showAdd">
+        <form novalidate="true"  ng-submit="addCase()">
+
+            <button type="submit">submit</button><br />
+            <button type="button" ng-click="reset()">RESET</button>
+        </form>
+    </modal>
+    <modal title="Edit Case" visible="showEdit">
+        <form novalidate="true"  ng-submit="editCase()">
+            <p>{{target.caseId}}</p>
+            <button type="submit">submit</button><br />
+            <button type="button" ng-click="reset()">RESET</button>
+        </form>
+    </modal>
 </div>

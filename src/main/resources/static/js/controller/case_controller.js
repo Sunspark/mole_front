@@ -3,6 +3,10 @@
 
     casesCtrl.controller("casesCtrl",[ '$scope', '$http', function($scope, $http) {
         $scope.data = [];
+        // initially don't show modal panels
+        $scope.showAdd = false;
+        $scope.showEdit = false;
+        $scope.target = {};
 
         $scope.loadData = function() {
             /*
@@ -50,10 +54,18 @@
             }
             return false;
         };
-        $scope.editCase = function(casse){
+        $scope.editCase = function(target){
             alert("trying to edit a case");
         };
-
+        $scope.editCasePopup = function(target){
+            console.log("trying to pop-up edit a case");
+            $scope.showEdit = true;
+            $scope.target = target;
+        };
+        $scope.addCasePopup = function(){
+            console.log("trying to pop-up create a case");
+            $scope.showAdd = true;
+        };
     }]);
 
 })();

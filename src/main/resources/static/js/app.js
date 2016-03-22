@@ -2,6 +2,8 @@
     var app = angular.module('moleApp', [
         'navCtrl',
         'usersCtrl',
-        'casesCtrl'
+        'casesCtrl',
+        'modalDir',
+        'dropdownService'
     ]);
 })();
