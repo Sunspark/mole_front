@@ -4,6 +4,6 @@
         'usersCtrl',
         'casesCtrl',
         'modalDir',
-        'dropdownService'
+        'dropdownSvc'
     ]);
 })();

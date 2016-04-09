@@ -4,6 +4,7 @@
         <a ng-click="addCasePopup()">Create</a>
         <select>
             <option value="agencyRefCode">Agency code</option>
+            <option ng-repeat="agency in agencies" value="{{agency.agencyId}}">{{agency.name}}</option>
             <option value="claimantLastName">Claimant Last name</option>
         </select>
         <input type="text" />

@@ -1,12 +1,16 @@
 (function(){
     var casesCtrl = angular.module('casesCtrl', []);
 
-    casesCtrl.controller("casesCtrl",[ '$scope', '$http', function($scope, $http) {
-        $scope.data = [];
+    casesCtrl.controller("casesCtrl",[ '$scope', '$http', 'dropdownSvc', 
+        function($scope, $http, dropdownSvc) {
+
+            $scope.data = [];
         // initially don't show modal panels
         $scope.showAdd = false;
         $scope.showEdit = false;
         $scope.target = {};
+
+        $scope.agencies = dropdownSvc.getAgencies();
 
         $scope.loadData = function() {
             /*
